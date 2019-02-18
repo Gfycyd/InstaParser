@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Names_Adresses</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+    <style>
+        body{
+            background: url("/static/img/background-img-slider.jpg") no-repeat;
+                background-size: 100% auto;
+        }
+        a button:active, a button:focus, form button:active, form button:focus {
+  outline: none ; !important;
+}
+        a button:hover, form button:hover{
+    background-color: palegoldenrod;
+}
+a button::-moz-focus-inner , form button::-moz-focus-inner{
+  border: 0; !important;
+}
+
+    </style>
+</head>
+            <body>
+            <form action="/home" style="margin-top: 3%; margin-left: 7%; border-radius: 17px;text-align:center; width: max-content">
+                    <button  style="padding: 10px; border-radius: 7px; width:120%;" value = "return" type="submit" onclick="">Главная</button>
+                </form>
+            <div class="container" style="margin-left: 20%; margin-top: 2%; width:60%; text-align: center;">
+                <br>
+
+                <p style="font-size: 60px">{{ type }}</p>
+                                <p style="font-size: 50px">{{ info }}</p>
+
+
+
+                    <a style = "outline: none; border: none" target="_blank" href={{ html }}>
+                        <button class = "but" style = "display:inline-block; padding: 25px; width:40%; border-radius: 10px;font-size: 1.5em;">{{ exist }} </button>  </a>
+
+
+            </div>
+
+            </body>
+</html>f

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People_People</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+    <style>
+        body{
+            background: url("/static/img/background-img-slider.jpg") no-repeat;
+                background-size: 100% auto;
+        }
+         a button:active, a button:focus,form button:active, form button:focus {
+  outline: none ; !important;
+}
+         a button:hover, form button:hover{
+             background-color: palegoldenrod;
+         }
+a button::-moz-focus-inner , form button::-moz-focus-inner {
+    border: 0;
+!important;
+}
+        .modal {
+    background: #fff;
+    left: 30%;
+    margin: -250px 0 0 0;
+    position: absolute;
+    top: -50%;
+            text-align: center;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.modal form{
+    display: inline-block;
+}
+/* Активация модального окна в состоянии :target */
+.modal:target {
+    top: 50%;
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+}
+.modal footer {
+    border:none;
+    outline: none;
+    border-top: 1px solid #e7e7e7;
+    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    float: right;
+}
+
+
+    </style>
+</head>
+            <body>
+            <div class="container" style="border: none; border-radius: 10px; background: lightgrey; text-align: center; margin-top: 100px; width: 45%; margin-left: 27.5%; height: 175%;">
+                <h1 >Введите хештэг,  профиль Instagram </h1>
+            <p></p>
+                <form action="/answer"  style="
+display: inline-block;" method="post">
+                    {% csrf_token %}
+                    {{ form.as_table }}
+                    {% csrf_token %}
+                    {{ count.as_table }}
+                    <br>
+                    <br>
+                    <button style = "padding:10px; padding-left:100px; padding-right:100px; border-radius: 10px; " type="submit" value="Submit">Выполнить поиск</button>
+                    <br>
+                    <br>
+
+                </form>
+          <!--      <form style="display: inline-block" action="#mod">
+                    <button  style = "display:inline-block; padding: 20px;border-radius: 10px;">
+                    Где посмотреть результаты
+                    </button></form>
+                    !-->
+                 <a style = "display:inline-block; left: 0;outline: none; border: none" target="_blank" href={{ html }}>
+                        <button class = "but" style = "display:inline-block;padding: 20px; border-radius: 10px;">Где посмотреть результаты</button>  </a>
+                <h2 style="font-size: 20px;">{{ info }}</h2>
+                <h2 style="font-size: 20px;">{{ info1 }}</h2>
+                <h2 style="font-size: 20px;">{{ info2 }}</h2>
+            </div>
+
+
+            <aside class="modal" id="modal">
+                <footer class="footer">
+        <a href="#" style="text-decoration: none" class="btn">Закрыть</a>
+    </footer>
+    <p>Уверены, что хотите удалить все записи из таблицы?</p>
+                    <form style="display: inline-block; " action = "/home" method="get">
+                    <button style = "display:inline-block; padding: 20px;border-radius: 10px;" name="deleter">
+              Очистить
+                    </button>
+                </form>
+                        <form action="#"><button class = "btn" style="display:inline-block; padding: 20px;border-radius: 10px;">Отменить</button></form>
+
+<br>
+
+
+                <br>
+</aside>
+
+            </body>
+</html>
